@@ -5,10 +5,47 @@ var game = (function () {
 		blues = 0,
 
 		scoring = {
-			reds: 20,
-			greens: 30,
-			blues: 15
-		};
+			reds: {
+				unit: 20,
+				bonus: {
+					num: 2,
+					total: 50
+				}
+			},
+			greens: {
+				unit: 30,
+				bonus: {
+					num: 3,
+					total: 150
+				}
+			},
+			blues: {
+				unit: 15,
+				bonus: {
+					num: 2,
+					total: 40
+				}
+			}
+		},
+
+		getBonus = function (color) {
+			var bonus = 0;
+			if (color = 'reds') {
+				var bonusNum = scoring.reds.bonus.num;
+				if (bonusNum > 0) {
+					var numBonuses = Math.floor(reds/bonusNum);
+					
+					bonus =
+						(numBonuses * scoring.reds.bonus.total) -
+						(numBonuses * scoring.reds.bonus.num) * scoring.reds.unit;
+				}
+			} else if (color == 'green') {
+
+			} else if (color == 'blue') {
+
+			}
+			return bonus;
+		},
 
 		incrementReds = function () {
 			reds += 1;
@@ -26,15 +63,15 @@ var game = (function () {
 		},
 
 		redScore = function () {
-			return reds * scoring.reds;
+			return (reds * scoring.reds.unit) + getBonus('reds');
 		},
 
 		greenScore = function () {
-			return greens * scoring.greens;
+			return greens * scoring.greens.unit;
 		},
 
 		blueScore = function () {
-			return blues * scoring.blues;
+			return blues * scoring.blues.unit;
 		},
 
 		bonusPoints = function () {
