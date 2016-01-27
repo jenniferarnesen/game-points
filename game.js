@@ -1,8 +1,9 @@
 var game = (function () {
-	var self = this,
-		reds = 0,
-		greens = 0,
-		blues = 0,
+	var colors = {
+			reds: 0,
+			greens: 0,
+			blues: 0 
+		},
 
 		scoring = {
 			reds: {
@@ -29,57 +30,63 @@ var game = (function () {
 		},
 
 		getBonus = function (color) {
-			var bonus = 0;
-			if (color = 'reds') {
-				var bonusNum = scoring.reds.bonus.num;
-				if (bonusNum > 0) {
-					var numBonuses = Math.floor(reds/bonusNum);
-					
-					bonus =
-						(numBonuses * scoring.reds.bonus.total) -
-						(numBonuses * scoring.reds.bonus.num) * scoring.reds.unit;
-				}
-			} else if (color == 'green') {
+			var bonus = 0,
+				bonusNum = scoring[color].bonus.num;
 
-			} else if (color == 'blue') {
-
+			if (bonusNum > 0) {
+				var numBonuses = Math.floor(colors[color]/bonusNum);
+				
+				bonus =
+					(numBonuses * scoring[color].bonus.total) -
+					(numBonuses * scoring[color].bonus.num) * scoring[color].unit;
 			}
+
 			return bonus;
 		},
 
 		incrementReds = function () {
-			reds += 1;
-			return reds;
+			colors.reds += 1;
+			return colors.reds;
 		},
 
 		incrementGreens = function () {
-			greens += 1;
-			return greens;
+			colors.greens += 1;
+			return colors.greens;
 		},
 
 		incrementBlues = function () {
-			blues += 1;
-			return blues;
+			colors.blues += 1;
+			return colors.blues;
 		},
 
 		redScore = function () {
-			return (reds * scoring.reds.unit) + getBonus('reds');
+			return (colors.reds * scoring.reds.unit) + getBonus('reds');
 		},
 
 		greenScore = function () {
-			return greens * scoring.greens.unit;
+			return (colors.greens * scoring.greens.unit) + getBonus('greens');
 		},
 
 		blueScore = function () {
-			return blues * scoring.blues.unit;
+			return (colors.blues * scoring.blues.unit) + getBonus('blues');
 		},
 
+		// score = function (color) {
+		// 	return (colors[color] * scoring[color].unit) + getBonus(color);
+		// },
+
 		bonusPoints = function () {
-			return 0;
+			return getBonus('reds') + getBonus('greens') + getBonus('blues');
 		},
 
 		totalPoints = function () {
 			return redScore() + greenScore() + blueScore();
+		},
+
+		reset = function () {
+			colors.reds = 0;
+			colors.greens = 0;
+			colors.blues = 0;
 		};
 
 	return {
@@ -91,7 +98,8 @@ var game = (function () {
 		blueScore: 			blueScore,
 
 		bonusPoints: bonusPoints,
-		totalPoints: totalPoints 
+		totalPoints: totalPoints,
+		reset: reset
 	};
 }());
 
@@ -103,6 +111,7 @@ $(document).ready(function () {
 	}
 
 	$('.red').click(function () {
+		console.log('red clicked');
 		var reds = game.incrementReds();
   		$('.red-quantity').text(reds);
   		$('.red-score').text(game.redScore());
@@ -125,4 +134,16 @@ $(document).ready(function () {
 
   		updateTotals();
 	});
+
+	$('.new-game').click(function () {
+		game.reset();
+		$('.red-quantity').text('');
+  		$('.red-score').text('');
+  		$('.green-quantity').text('');
+  		$('.green-score').text('');
+  		$('.blue-quantity').text('');
+  		$('.blue-score').text('');
+
+  		updateTotals();
+	})
 });
