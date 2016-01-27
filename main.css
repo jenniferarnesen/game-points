@@ -1,0 +1,30 @@
+body {
+  font-family: Sans-Serif;
+}
+
+.game-board, .scoreboard {
+	height: 400px;
+	display: inline-block;
+}
+
+.game-board {
+	width: 74%;
+	background-color: #cdcdcd;
+}
+
+.scoreboard {
+	width: 25%;
+	background-color: #ababab;
+}
+
+.red {
+	background-color: red;
+}
+
+.green {
+	background-color: green;
+}
+
+.blue {
+	background-color: blue;
+}
