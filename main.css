@@ -2,29 +2,61 @@ body {
   font-family: Sans-Serif;
 }
 
-.game-board, .scoreboard {
+#game-board, #scoreboard {
 	height: 400px;
 	display: inline-block;
+	vertical-align: top;
+	overflow: auto;
 }
 
-.game-board {
-	width: 64%;
+.header {
+	width: 100%;
+	padding: 5px;
+	background-color: #BCA9F5;
+	font-weight: bold;
+	font-size: 2rem;
+}
+
+#scores {
+	background-color: #A9F5E1;
+}
+
+.game-button {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 5px;
+	border: none;
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.content {
+	overflow: auto;
+}
+
+.flex-container {
+	width: 980px;
+}
+
+#game-board {
+	width: 500px;
 	background-color: #cdcdcd;
 }
 
-.scoreboard {
-	width: 35%;
+#scoreboard {
+	width: 380px;
 	background-color: #ababab;
 }
 
-.red {
+.game-button[value="red"] {
 	background-color: red;
 }
 
-.green {
+.game-button[value="green"] {
 	background-color: green;
 }
 
-.blue {
+.game-button[value="blue"] {
 	background-color: blue;
 }

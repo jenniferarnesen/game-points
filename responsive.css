@@ -1,0 +1,27 @@
+@media screen and (max-width: 980px) {
+
+	.flex-container {
+		width: 95%;
+	}
+
+	#game-board {
+		width: 60%;
+	}
+
+	#scoreboard {
+		width: 30%;
+	}
+}
+
+
+@media screen and (max-width: 650px) {
+
+	#game-board {
+		width: 100%;
+	}
+
+	#scoreboard {
+		width: 100%;
+	}
+
+}
