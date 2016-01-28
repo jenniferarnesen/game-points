@@ -104,7 +104,7 @@ $(document).ready(function () {
   		updateTotals();
 	});
 
-	$('.new-game').click(function () {
+	$('#new-game').click(function () {
 		game.reset();
 		clearBoard();
 	})
