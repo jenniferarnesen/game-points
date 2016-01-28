@@ -1,26 +1,26 @@
 var game = (function () {
 	var colors = {
-			reds: 0,
-			greens: 0,
-			blues: 0 
+			red: 0,
+			green: 0,
+			blue: 0 
 		},
 
 		scoring = {
-			reds: {
+			red: {
 				unit: 20,
 				bonus: {
 					num: 2,
 					total: 50
 				}
 			},
-			greens: {
+			green: {
 				unit: 30,
 				bonus: {
 					num: 3,
 					total: 150
 				}
 			},
-			blues: {
+			blue: {
 				unit: 15,
 				bonus: {
 					num: 2,
@@ -68,9 +68,10 @@ var game = (function () {
 		},
 
 		reset = function () {
-			colors.reds = 0;
-			colors.greens = 0;
-			colors.blues = 0;
+			Object.keys(colors)
+				.map(function (color) {
+					colors[color] = 0;
+				});
 		};
 
 	return {
@@ -94,26 +95,11 @@ $(document).ready(function () {
   		updateTotals();
 	}
 
-	$('.red').click(function () {
-		var reds = game.increment('reds');
-  		$('.red-quantity').text(reds);
-  		$('.red-score').text(game.score('reds'));
-
-  		updateTotals();
-	});
-
-	$('.green').click(function () {
-		var greens = game.increment('greens');
-  		$('.green-quantity').text(greens);
-  		$('.green-score').text(game.score('greens'));
-
-  		updateTotals();
-	});
-
-	$('.blue').click(function () {
-		var blues = game.increment('blues');
-  		$('.blue-quantity').text(blues);
-  		$('.blue-score').text(game.score('blues'));
+	$('.game-button').click(function () {
+		var color = $(this).attr('value'),
+			quantity = game.increment(color);
+  		$('.'+ color + '-quantity').text(quantity);
+  		$('.' + color + '-score').text(game.score(color));
 
   		updateTotals();
 	});
