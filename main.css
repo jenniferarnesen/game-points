@@ -19,6 +19,17 @@ body {
 
 #scores {
 	background-color: #A9F5E1;
+	height: 200px;
+}
+
+#score-table tbody {
+	height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#score-table {
+	width: 100%;
 }
 
 .game-button {
@@ -33,6 +44,10 @@ body {
 
 .content {
 	overflow: auto;
+}
+
+tbody, thead {
+	display: block;
 }
 
 .flex-container {
