@@ -1,30 +1,43 @@
 var randomizer = (function () {
+	var 
+		/**
+		 * @param  {[type]}
+		 * @param  {[type]}
+		 * @return {[type]}
+		 */
+		getRandomInt = function (min, max, factor) {
+			return (Math.floor(Math.random() * (max - min)) + min) * factor;
+		},
 
-	var getRandomInt = function (min, max) {
-			return Math.floor(Math.random() * (max - min)) + min;
+		/** 
+		 * Used by reduce and generates
+		 * randomized game scoring data including
+		 * the points for each item, and the bonus scheme
+		 *
+		 * @return {Object}
+		 */
+		getItemData = function (item, name) {
+			var hasBonus = !(Math.random() + .5 | 0);
+			item[name] = {
+				unit: getRandomInt(1, 3, 10)
+			};
+
+			if (hasBonus) {
+				item[name].bonus = {
+					num: getRandomInt(2, 4, 1)
+				}
+				item[name].bonus.total = 
+					item[name].bonus.num * item[name].unit + getRandomInt(1, 5, 10);
+			}
+			return item;
 		},
 
 		generate = function () {
-			var numItems = getRandomInt(3, 8),
+			var numItems = getRandomInt(3, 8, 1),
 
 				names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].slice(0, numItems),
 
-				scoring = names.reduce(function (obj, name) {
-					var hasBonus = !(Math.random() + .5 | 0);
-					obj[name] = {
-						unit: getRandomInt(10, 30)
-					};
-
-					if (hasBonus) {
-						obj[name].bonus = {
-							num: getRandomInt(2, 4)
-						}
-						obj[name].bonus.total = 
-							obj[name].bonus.num * obj[name].unit + getRandomInt(10, 50);
-					}
-
-					return obj;
-				}, {});
+				scoring = names.reduce(getItemData, {});
 
 			return {
 				names: names,
