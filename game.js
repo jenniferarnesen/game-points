@@ -1,9 +1,56 @@
+var randomizer = (function () {
+
+	var getRandomInt = function (min, max) {
+			return Math.floor(Math.random() * (max - min)) + min;
+		},
+
+		generate = function () {
+			var numItems = getRandomInt(3, 8),
+
+				names = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'].slice(0, numItems),
+
+				scoring = names.reduce(function (obj, name) {
+					var hasBonus = !(Math.random() + .5 | 0);
+					obj[name] = {
+						unit: getRandomInt(10, 30)
+					};
+
+					if (hasBonus) {
+						obj[name].bonus = {
+							num: getRandomInt(2, 4)
+						}
+						obj[name].bonus.total = 
+							obj[name].bonus.num * obj[name].unit + getRandomInt(10, 50);
+					}
+
+					return obj;
+				}, {});
+
+			return {
+				names: names,
+				scoring: scoring
+			};
+		};
+
+	return {
+		generate: generate
+	};
+}());
+
 var game = (function () {
 	var colors = {
 			red: 0,
 			green: 0,
 			blue: 0 
 		},
+
+		randomGame = randomizer.generate(),
+
+		items = randomGame.names.reduce(function (obj, name) {
+	  		obj[name] = 0;
+	  		return obj;
+		}, {}),
+
 
 		scoring = {
 			red: {
