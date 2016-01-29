@@ -1,6 +1,6 @@
 @media screen and (max-width: 980px) {
 
-	.flex-container {
+	.container {
 		width: 95%;
 	}
 
@@ -23,5 +23,4 @@
 	#scoreboard {
 		width: 100%;
 	}
-
 }
