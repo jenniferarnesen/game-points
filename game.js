@@ -1,19 +1,24 @@
 var randomizer = (function () {
 	var 
 		/**
-		 * @param  {[type]}
-		 * @param  {[type]}
-		 * @return {[type]}
+		 * Generates a random integer
+		 *
+		 * @param  {Integer} min Minimum number
+		 * @param  {Integer} max Maximum number
+		 * @param  {Integer} factor Factor to multiply by
+		 * @return {Integer}
 		 */
 		getRandomInt = function (min, max, factor) {
 			return (Math.floor(Math.random() * (max - min)) + min) * factor;
 		},
 
 		/** 
-		 * Used by reduce and generates
-		 * randomized game scoring data including
-		 * the points for each item, and the bonus scheme
+		 * Generates randomized game scoring data including
+		 * the points for each item, and the bonus scheme.
+		 * Used by reduce.
 		 *
+		 * @param {String} item The item to append to
+		 * @param {String} name The name of the next item
 		 * @return {Object}
 		 */
 		getItemData = function (item, name) {
@@ -51,87 +56,65 @@ var randomizer = (function () {
 }());
 
 var game = (function () {
-	var colors = {
-			red: 0,
-			green: 0,
-			blue: 0 
-		},
+	var items = {},
 
-		randomGame = randomizer.generate(),
+		scoring = {},
 
-		items = randomGame.names.reduce(function (obj, name) {
-	  		obj[name] = 0;
-	  		return obj;
-		}, {}),
-
-
-		scoring = {
-			red: {
-				unit: 20,
-				bonus: {
-					num: 2,
-					total: 50
-				}
-			},
-			green: {
-				unit: 30,
-				bonus: {
-					num: 3,
-					total: 150
-				}
-			},
-			blue: {
-				unit: 15,
-				bonus: {
-					num: 2,
-					total: 40
-				}
-			}
-		},
-
-		getBonus = function (color) {
+		getBonus = function (item) {
 			var bonus = 0,
-				bonusNum = scoring[color].bonus.num;
+				bonusNum = scoring[item].bonus ? scoring[item].bonus.num : 0;
 
 			if (bonusNum > 0) {
-				var numBonuses = Math.floor(colors[color]/bonusNum);
+				var numBonuses = Math.floor(items[item]/bonusNum);
 				
 				bonus =
-					(numBonuses * scoring[color].bonus.total) -
-					(numBonuses * scoring[color].bonus.num) * scoring[color].unit;
+					(numBonuses * scoring[item].bonus.total) -
+					(numBonuses * scoring[item].bonus.num) * scoring[item].unit;
 			}
 
 			return bonus;
 		},
 
-		score = function (color) {
-			return (colors[color] * scoring[color].unit) + getBonus(color);
+		score = function (item) {
+			return (items[item] * scoring[item].unit) + getBonus(item);
 		},
 
-		increment = function (color) {
-			colors[color] += 1;
-			return colors[color];
+		increment = function (item) {
+			items[item] += 1;
+			return items[item];
 		},
 
 		bonus = function () {
-			return Object.keys(colors)
+			return Object.keys(items)
 				.reduce(function (previous, current) {
 					return previous + getBonus(current);
 			}, 0);
 		},
 
 		total = function () {
-			return Object.keys(colors)
+			return Object.keys(items)
 				.reduce(function (previous, current) {
 					return previous + score(current);
 			}, 0);
 		},
 
 		reset = function () {
-			Object.keys(colors)
-				.map(function (color) {
-					colors[color] = 0;
+			Object.keys(items)
+				.map(function (item) {
+					items[item] = 0;
 				});
+		},
+
+		init = function () {
+			var randomGame = randomizer.generate();
+			items = randomGame.names.reduce(function (obj, name) {
+		  		obj[name] = 0;
+		  		return obj;
+			}, {});
+
+			scoring = randomGame.scoring;
+
+			return items;
 		};
 
 	return {
@@ -139,11 +122,41 @@ var game = (function () {
 		score: score,
 		bonus: bonus,
 		total: total,
-		reset: reset
+		reset: reset,
+		init: init
 	};
 }());
 
+var getRandomColor = function () {
+    var letters = '789ABCD'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 6)];
+    }
+    return color;
+};
+
 $(document).ready(function () {
+
+	var buttons = game.init();
+
+	Object.keys(buttons).forEach(function (btn) {
+		var buttonMarkup = 
+				'<button value="' + btn + 
+				'" class="game-button" style="background-color:' + getRandomColor() + ';">'
+				+ btn + '</button>';
+		$('#button-container').append(buttonMarkup);
+	});
+
+	Object.keys(buttons).forEach(function (btn) {
+		var trMarkup =
+			'<tr> \
+				<td>' + btn + '</td> \
+				<td class="' + btn + '-quantity"></td> \
+				<td class="' + btn + '-score"></td> \
+			</tr>';
+		$('#score-table tbody').append(trMarkup);
+	});
 
 	updateTotals = function () {
 		$('.total-points').text(game.total());
@@ -156,10 +169,10 @@ $(document).ready(function () {
 	}
 
 	$('.game-button').click(function () {
-		var color = $(this).attr('value'),
-			quantity = game.increment(color);
-  		$('.'+ color + '-quantity').text(quantity);
-  		$('.' + color + '-score').text(game.score(color));
+		var item = $(this).attr('value'),
+			quantity = game.increment(item);
+  		$('.'+ item + '-quantity').text(quantity);
+  		$('.' + item + '-score').text(game.score(item));
 
   		updateTotals();
 	});

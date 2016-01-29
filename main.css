@@ -70,8 +70,7 @@ body {
 	overflow: auto;
 }
 
-.flex-container {
-	/*width: 980px;*/
+#button-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -91,16 +90,4 @@ tbody, thead {
 #scoreboard {
 	width: 380px;
 	background-color: #ababab;
-}
-
-.game-button[value="red"] {
-	background-color: red;
-}
-
-.game-button[value="green"] {
-	background-color: green;
-}
-
-.game-button[value="blue"] {
-	background-color: blue;
 }
