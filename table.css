@@ -1,0 +1,41 @@
+#score-table {
+	width: 100%;
+	border-collapse: separate;
+	text-align: left;
+}
+
+#score-table tbody {
+	height: 170px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+    width:100%;
+}
+
+#score-table thead {
+	display: table-header-group;
+}
+
+#score-table th {
+	padding: 5px;
+	width: 70px;
+}
+
+td {
+	padding: 5px;
+	width: 70px;
+}
+
+thead tr {
+	display: block;
+	border-bottom: 2px solid black;
+	font-weight: bold;
+}
+
+tbody tr {
+	border-bottom: 1px solid black;
+}
+
+td {
+	padding: 2px;
+}
