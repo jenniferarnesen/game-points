@@ -18,7 +18,8 @@ body {
 }
 
 .content {
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 #game-board {
@@ -30,7 +31,8 @@ body {
 	height: 400px;
 	display: inline-block;
 	vertical-align: top;
-	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 .game-button {
