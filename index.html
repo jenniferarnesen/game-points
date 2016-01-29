@@ -12,7 +12,7 @@
 				<header class="header">
 					Kahoot! Points
 				</header>
-				<div class="content">
+				<div class="content flex-container">
 					<button value="red" class="game-button">A</button>
 					<button value="green" class="game-button">B</button>
 					<button value="blue" class="game-button">C</button>
@@ -50,8 +50,10 @@
 						</table>
 					</div>
 					<div id="game-summary">
-						<span>Bonus points: </span><span class="bonus-points">0</span>
-						<span>Total points: </span><span class="total-points">0</span>
+						<div id="bonus">
+							<span>Bonus points: </span><span class="bonus-points">0</span>
+						</div>
+						<p id="">Total</p><p class="total-points">0</p>
 						<div>
 							<button id="new-game">New Game</button>
 						</div>

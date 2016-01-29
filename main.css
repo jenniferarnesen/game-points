@@ -17,6 +17,25 @@ body {
 	font-size: 2rem;
 }
 
+#bonus {
+	width: 100%;
+	padding: 5px;
+	background-color: #BCA9F5;
+	font-size: 1.2rem;
+}
+
+#new-game {
+	width: 80px;
+	height: 30px;
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	background-color: #2E2E2E;
+	border-radius: 3px;
+	border: none;
+
+}
+
 #scores {
 	background-color: #A9F5E1;
 	height: 200px;
@@ -33,25 +52,35 @@ body {
 }
 
 .game-button {
-	width: 50px;
-	height: 50px;
+	width: 100px;
+	height: 100px;
 	text-align: center;
 	border-radius: 5px;
 	border: none;
 	font-weight: bold;
 	font-size: 1.5rem;
+	margin: 1rem 0 0 1rem;
+}
+
+.game-button:hover {
+	cursor: pointer;
 }
 
 .content {
 	overflow: auto;
 }
 
-tbody, thead {
-	display: block;
+.flex-container {
+	/*width: 980px;*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: flex-start;
 }
 
-.flex-container {
-	width: 980px;
+tbody, thead {
+	display: block;
 }
 
 #game-board {
