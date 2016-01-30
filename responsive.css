@@ -5,14 +5,13 @@
 	}
 
 	#game-board {
-		width: 60%;
+		width: 65%;
 	}
 
 	#score-board {
-		width: 30%;
+		width: 25%;
 	}
 }
-
 
 @media screen and (max-width: 650px) {
 
