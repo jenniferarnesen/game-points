@@ -21,21 +21,18 @@
 	width: 70px;
 }
 
-td {
+#score-table td {
 	padding: 5px;
 	width: 70px;
+	text-align: center;
 }
 
-thead tr {
+#score-table thead tr {
 	display: block;
 	border-bottom: 2px solid black;
 	font-weight: bold;
 }
 
-tbody tr {
+#score-table tbody tr {
 	border-bottom: 1px solid black;
-}
-
-td {
-	padding: 2px;
 }
