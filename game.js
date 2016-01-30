@@ -159,8 +159,8 @@ $(document).ready(function () {
 	});
 
 	updateTotals = function () {
-		$('.total-points').text(game.total());
-		$('.bonus-points').text(game.bonus());
+		$('#total-points').text(game.total());
+		$('#bonus-points').text(game.bonus());
 	}
 
 	clearBoard = function () {
@@ -177,7 +177,7 @@ $(document).ready(function () {
   		updateTotals();
 	});
 
-	$('#new-game').click(function () {
+	$('#new-game-button').click(function () {
 		game.reset();
 		clearBoard();
 	})

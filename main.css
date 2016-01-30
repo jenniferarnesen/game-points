@@ -1,5 +1,10 @@
+.block-it {
+	display: inline-block;
+	width: 40%;
+}
+
 body {
-  font-family: Sans-Serif;
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 }
 
 #bonus {
@@ -17,22 +22,22 @@ body {
 	align-content: flex-start;
 }
 
-.content {
-	overflow-x: hidden;
-	overflow-y: scroll;
+.container {
+	margin: 10px;
+	box-shadow: 0 8px 6px -6px black;
 }
 
 #game-board {
 	width: 500px;
-	background-color: #cdcdcd;
 }
 
-#game-board, #scoreboard {
+#game-board, #score-board {
 	height: 400px;
 	display: inline-block;
 	vertical-align: top;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	background-color: #F2F2F2;
 }
 
 .game-button {
@@ -42,24 +47,26 @@ body {
 	border-radius: 5px;
 	border: none;
 	font-weight: bold;
-	font-size: 1.5rem;
+	font-size: 1.9rem;
 	margin: 1rem 0 0 1rem;
+	transition-duration: 0.3s;
+	transition-property: box-shadow;
 }
 
 .game-button:hover {
 	cursor: pointer;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 .header {
 	width: 100%;
-	padding: 5px;
+	padding: 12px;
 	background-color: #BCA9F5;
 	font-weight: bold;
 	font-size: 2rem;
 }
 
-
-#new-game {
+#new-game-button {
 	width: 80px;
 	height: 30px;
 	text-align: center;
@@ -68,15 +75,20 @@ body {
 	background-color: #2E2E2E;
 	border-radius: 3px;
 	border: none;
-
 }
 
 #scoreboard {
 	width: 380px;
-	background-color: #ababab;
 }
 
 #scores {
-	background-color: #A9F5E1;
-	height: 200px;
+	height: 250px;
 }
+
+#total {
+	padding: 10px;
+}
+
+
+
+

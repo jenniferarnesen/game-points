@@ -1,6 +1,6 @@
 @media screen and (max-width: 980px) {
 
-	.container {
+	#game {
 		width: 95%;
 	}
 
@@ -8,7 +8,7 @@
 		width: 60%;
 	}
 
-	#scoreboard {
+	#score-board {
 		width: 30%;
 	}
 }
@@ -20,7 +20,7 @@
 		width: 100%;
 	}
 
-	#scoreboard {
+	#score-board {
 		width: 100%;
 	}
 }
