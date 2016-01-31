@@ -3,23 +3,23 @@ body {
 }
 
 #bonus {
-	width: 100%;
-	padding: 5px;
 	background-color: #BCA9F5;
 	font-size: 1.2rem;
+	padding: 5px;
+	width: 100%;
 }
 
 #button-container {
+	align-content: flex-start;
+	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: center;
-	align-content: flex-start;
 }
 
 .container {
-	margin: 10px;
 	box-shadow: 0 8px 6px -6px black;
+	margin: 10px;
 }
 
 #game-board {
@@ -27,54 +27,58 @@ body {
 }
 
 #game-board, #score-board {
-	height: 400px;
+	background-color: #F2F2F2;
 	display: inline-block;
-	vertical-align: top;
+	height: 400px;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background-color: #F2F2F2;
+	vertical-align: top;
 }
 
 .game-button {
-	width: 100px;
-	height: 100px;
-	text-align: center;
 	border-radius: 5px;
 	border: none;
-	font-weight: bold;
 	font-size: 1.9rem;
+	font-weight: bold;
+	height: 100px;
 	margin: 1rem 0 0 1rem;
+	text-align: center;
 	transition-duration: 0.3s;
 	transition-property: box-shadow;
+	width: 100px;
 }
 
 .game-button:hover {
-	cursor: pointer;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+	cursor: pointer;
 }
 
 .header {
-	width: 100%;
-	padding: 12px;
 	background-color: #BCA9F5;
-	font-weight: bold;
 	font-size: 2rem;
+	font-weight: bold;
+	padding: 12px;
+	width: 100%;
 }
 
 #new-game-button {
-	width: 80px;
+	background-color: #2E2E2E;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
 	height: 30px;
 	text-align: center;
-	font-weight: bold;
-	color: white;
-	background-color: #2E2E2E;
-	border-radius: 3px;
-	border: none;
+	width: 80px;
 }
 
 #new-game-button:hover {
-	cursor: pointer;
 	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+	cursor: pointer;
+}
+
+#new-game, #total {
+	margin: 10px;
 }
 
 #scoreboard {
@@ -85,6 +89,41 @@ body {
 	height: 210px;
 }
 
-#total, #new-game {
-	margin: 10px;
+#score-table {
+	border-collapse: separate;
+	text-align: left;
+	width: 100%;
+}
+
+#score-table tbody {
+	display: block;
+    height: 170px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width:100%;
+}
+
+#score-table tbody tr {
+	border-bottom: 1px solid black;
+}
+
+#score-table td {
+	padding: 5px;
+	text-align: center;
+	width: 70px;
+}
+
+#score-table th {
+	padding: 5px;
+	width: 70px;
+}
+
+#score-table thead {
+	display: table-header-group;
+}
+
+#score-table thead tr {
+	border-bottom: 2px solid black;
+	display: block;
+	font-weight: bold;
 }
