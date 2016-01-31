@@ -1,5 +1,5 @@
 body {
-  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 #bonus {
@@ -101,10 +101,6 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     width:100%;
-}
-
-#score-table tbody tr {
-	border-bottom: 1px solid black;
 }
 
 #score-table td {
