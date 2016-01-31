@@ -3,100 +3,100 @@ body {
 }
 
 #bonus {
-	background-color: #BCA9F5;
-	font-size: 1.2rem;
-	padding: 5px;
-	width: 100%;
+    background-color: #BCA9F5;
+    font-size: 1.2rem;
+    padding: 5px;
+    width: 100%;
 }
 
 #button-container {
-	align-content: flex-start;
-	align-items: center;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+    align-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .container {
-	box-shadow: 0 8px 6px -6px black;
-	margin: 10px;
+    box-shadow: 0 8px 6px -6px black;
+    margin: 10px;
 }
 
 #game-board {
-	width: 600px;
+    width: 600px;
 }
 
 #game-board, #score-board {
-	background-color: #F2F2F2;
-	display: inline-block;
-	height: 400px;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	vertical-align: top;
+    background-color: #F2F2F2;
+    display: inline-block;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    vertical-align: top;
 }
 
 .game-button {
-	border-radius: 5px;
-	border: none;
-	font-size: 1.9rem;
-	font-weight: bold;
-	height: 100px;
-	margin: 1rem 0 0 1rem;
-	text-align: center;
-	transition-duration: 0.3s;
-	transition-property: box-shadow;
-	width: 100px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1.9rem;
+    font-weight: bold;
+    height: 100px;
+    margin: 1rem 0 0 1rem;
+    text-align: center;
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+    width: 100px;
 }
 
 .game-button:hover {
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-	cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 .header {
-	background-color: #BCA9F5;
-	font-size: 2rem;
-	font-weight: bold;
-	padding: 12px;
-	width: 100%;
+    background-color: #BCA9F5;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 12px;
+    width: 100%;
 }
 
 #new-game-button {
-	background-color: #2E2E2E;
-	border: none;
-	border-radius: 3px;
-	color: white;
-	font-weight: bold;
-	height: 30px;
-	text-align: center;
-	width: 80px;
+    background-color: #2E2E2E;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    height: 30px;
+    text-align: center;
+    width: 80px;
 }
 
 #new-game-button:hover {
-	box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-	cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 #new-game, #total {
-	margin: 10px;
+    margin: 10px;
 }
 
 #scoreboard {
-	width: 380px;
+    width: 380px;
 }
 
 #scores {
-	height: 210px;
+    height: 210px;
 }
 
 #score-table {
-	border-collapse: separate;
-	text-align: left;
-	width: 100%;
+    border-collapse: separate;
+    text-align: left;
+    width: 100%;
 }
 
 #score-table tbody {
-	display: block;
+    display: block;
     height: 170px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -104,22 +104,22 @@ body {
 }
 
 #score-table td {
-	padding: 5px;
-	text-align: center;
-	width: 70px;
+    padding: 5px;
+    text-align: center;
+    width: 70px;
 }
 
 #score-table th {
-	padding: 5px;
-	width: 70px;
+    padding: 5px;
+    width: 70px;
 }
 
 #score-table thead {
-	display: table-header-group;
+    display: table-header-group;
 }
 
 #score-table thead tr {
-	border-bottom: 2px solid black;
-	display: block;
-	font-weight: bold;
+    border-bottom: 2px solid black;
+    display: block;
+    font-weight: bold;
 }

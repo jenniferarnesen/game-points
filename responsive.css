@@ -1,25 +1,25 @@
 @media screen and (max-width: 980px) {
 
-	#game {
-		width: 95%;
-	}
+    #game {
+        width: 95%;
+    }
 
-	#game-board {
-		width: 65%;
-	}
+    #game-board {
+        width: 65%;
+    }
 
-	#score-board {
-		width: 25%;
-	}
+    #score-board {
+        width: 25%;
+    }
 }
 
 @media screen and (max-width: 650px) {
 
-	#game-board {
-		width: 100%;
-	}
+    #game-board {
+        width: 100%;
+    }
 
-	#score-board {
-		width: 100%;
-	}
+    #score-board {
+        width: 100%;
+    }
 }
