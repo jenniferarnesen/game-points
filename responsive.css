@@ -1,5 +1,4 @@
 @media screen and (max-width: 980px) {
-
     #game {
         width: 95%;
     }
@@ -14,7 +13,6 @@
 }
 
 @media screen and (max-width: 650px) {
-
     #game-board {
         width: 100%;
     }
