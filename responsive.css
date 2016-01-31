@@ -8,11 +8,11 @@
     }
 
     #score-board {
-        width: 25%;
+        width: 30%;
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
     #game-board {
         width: 100%;
     }

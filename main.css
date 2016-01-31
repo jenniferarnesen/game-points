@@ -29,7 +29,7 @@ body {
 #game-board, #score-board {
     background-color: #F2F2F2;
     display: inline-block;
-    height: 400px;
+    height: 420px;
     overflow-x: hidden;
     overflow-y: scroll;
     vertical-align: top;
