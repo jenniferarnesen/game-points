@@ -1,4 +1,4 @@
-/*global game, colorRandomizer*/
+/*global game, colorizer*/
 
 $(document).ready(function () {
 
@@ -7,7 +7,7 @@ $(document).ready(function () {
 	Object.keys(buttons).forEach(function (btn) {
 		var buttonMarkup = 
 			'<button value="' + btn + 
-			'" class="game-button" style="background-color:' + colorRandomizer.get() + ';">'
+			'" class="game-button" style="background-color:' + colorizer.get() + ';">'
 			+ btn + '</button>';
 		$('#button-container').append(buttonMarkup);
 	});
